@@ -8,85 +8,35 @@
     <link rel="shortcut icon" href="assets/images/favicon.ico" id="tabIcon">
     <title>Buka | ChatBot</title>
     <link rel="stylesheet" href="./style.css">
-
-    <!-- Bootstrap Css -->
-    <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
-
-    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-    <!-- App Css-->
-    <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
-
-
 </head>
 
 <body>
-<section>
-        <div class="p-3 p-lg-4 user-topbar">
-        <div class="row align-items-center">
-            <div class="col-sm-4 col-8">
-                <div class="d-flex align-items-center">
-                    <div class="flex-shrink-0 d-block d-lg-none me-3">
-                        <a href="javascript: void(0);" class="user-chat-remove font-size-18 p-1"><i
-                                class="bx bx-chevron-left align-middle"></i></a>
-                    </div>
-                    <div class="flex-grow-1 overflow-hidden">
-                        <div class="d-flex align-items-center">
-                            <div
-                                class="flex-shrink-0 chat-user-img online user-own-img align-self-center me-3 ms-0">
-                                <img src="assets/images/users/avatar-2.jpg"
-                                    class="rounded-circle avatar-sm" alt="">
-                                <span class="user-status"></span>
-                            </div>
-                            <div class="flex-grow-1 overflow-hidden">
-                                <h6 class="text-truncate mb-0 font-size-18"><a href="#"
-                                        class="user-profile-show text-reset">ChatBot</a></h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+    <div class="chatbot-container">
+        <div class="chatbot-header">
+            <h2>Buka ChatBot: Place Your Order!</h2>
         </div>
+        <div class="chatbot-body" id="chatbot-body">
+            <ul class="chatbot-messages">
+                <li>Select 1 to Place an Order (Enter '1' to see Item List)</li>
+                <li>Select 99 to Checkout</li>
+                <li>Select 98 to See Order History</li>
+                <li>Select 97 to See current Order</li>
+                <li>Select 0 to Cancel your Orders</li>
 
-    </div>
-
-    <div id="message-container">
-        <div>
-            <p>Select 1 to Place an Order (Enter '1' to see Item List)</p>
-            <p>Select 99 to Checkout</p>
-            <p>Select 98 to See Order History</p>
-            <p>Select 97 to See current Order</p>
-            <p>Select 0 to Cancel your Orders</p>
+            </ul>
+        </div>
+        <div class="chatbot-footer">
+            <form class="chatbot-form" id="chatbot-form">
+                <input type="text" class="chatbot-input" id="chatbot-input" placeholder="Enter a valid input...">
+                <button type="submit" class="chatbot-submit">Send</button>
+            </form>
         </div>
     </div>
 
-    <!-- <form id="send-container">
-        <input type="text" id="message-input">
-        <button type="submit" id="send-button">Send</button>
-    </form> -->
 
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
 
-    <form id="send-container" enctype="multipart/form-data">
-
-        <input id="message-input" autocomplete="off" type="text" class="form-control form-control-lg chat-input"
-            autofocus id="chat-input" placeholder="Enter your input...">
-
-
-        <div class="col-auto">
-            <div class="chat-input-links ms-2 gap-md-1">
-                <div class="links-list-item">
-                    <button type="submit" id="send-button" class="btn btn-primary btn-lg chat-send waves-effect waves-light"
-                        data-bs-toggle="collapse" data-bs-target=".chat-input-collapse1.show">
-                        <i class="bx bxs-send align-middle" id="submit-btn"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-    </form>
-</section>
-
-
-    <script src="/socket.io/socket.io.js"></script>
     <script src="script.js"></script>
 
 </body>

@@ -1,4 +1,4 @@
-const io = require('../socket').getIO()
+const io = require('../utils/socket').getIO()
 
 let botResponse1 = ''
 
@@ -23,9 +23,7 @@ exports.getItems = ({ session }) => {
 exports.addItem = ({ session }, userInput) => {
 
     if (session.hasGottenItems) {
-        console.log('it got it');
         if (items.hasOwnProperty(userInput)) {
-            console.log('item: ', items[userInput]);
             session.orderList.push(items[userInput])
             return io.emit('bot-response', `You have selected ${items[userInput]}`)
         }
@@ -79,7 +77,7 @@ exports.currentOrder = ({ session }) => {
 
     if (currentOrder.length) {
         console.log('Current Order');
-        for (let i = 1; i < currentOrder.length; i++) {
+        for (let i = 1; i <= currentOrder.length; i++) {
             botResponse97 = botResponse97.concat('', `<p> ${i} - ${currentOrder[i - 1]} </p>`)
         }
 
@@ -89,7 +87,7 @@ exports.currentOrder = ({ session }) => {
     if (orderList.length) {
         console.log('List Order');
         botResponse97 = '<p> Please Checkout Your Order with 99 </p>'
-        for (let i = 1; i < orderList.length; i++) {
+        for (let i = 1; i <= orderList.length; i++) {
             botResponse97 = botResponse97.concat('', `<p> ${i} - ${orderList[i - 1]} </p>`)
         }
 
@@ -104,13 +102,13 @@ exports.cancelOrder = ({ session }) => {
     let currentOrder = session.currentOrder
     let orderList = session.orderList
 
-    if (!currentOrder.length || !orderList.length) {
+    if (!orderList.length) {
         botResponse0 = 'No Order to cancel'
     }
 
     // EMPTY ORDER BUCKETS
-    currentOrder = []
-    orderList = []
+    session.currentOrder = []
+    session.orderList = []
 
     return io.emit('bot-response', botResponse0)
 }

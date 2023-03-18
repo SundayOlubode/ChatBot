@@ -3,21 +3,9 @@ const app = express()
 require('dotenv').config()
 const http = require('http')
 const server = http.createServer(app)
-const io = require('./socket').init(server)
+const io = require('./utils/socket').init(server)
 const session = require('express-session')
 const chatRoute = require('./routes/chatRoute')
-const socketController = require('./controllers/socketController')
-const CORS = require('cors')
-
-app.use(
-    CORS({
-      credentials: true,
-      origin: [
-      'http://localhost:3300',,
-      'https://chatbot-vka0.onrender.com' 
-    ]
-    })
-  );
 
 const PORT = process.env.PORT
 
@@ -33,15 +21,15 @@ app.use(express.static("views"));
 
 // SESSION
 app.use(session({
-    secret: process.env.SECRET,
-    resave: false,
-    saveUninitialized: true,
+  secret: process.env.SECRET,
+  resave: false,
+  saveUninitialized: false,
 })
 );
 
-app.use(socketController)
-app.use('/', chatRoute)
+//SOCKET IMPLEMENTATION IN CHATROUTE
+app.use('/', chatRoute) 
 
 server.listen(PORT, () => {
-    console.log('Server listening on port', PORT);
+  console.log('Server listening on port', PORT);
 })
