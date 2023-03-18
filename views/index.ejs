@@ -5,11 +5,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="assets/images/favicon.ico" id="tabIcon">
     <title>Buka | ChatBot</title>
     <link rel="stylesheet" href="./style.css">
+
+    <!-- Bootstrap Css -->
+    <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <!-- App Css-->
+    <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+
+
 </head>
 
 <body>
+<section>
+        <div class="p-3 p-lg-4 user-topbar">
+        <div class="row align-items-center">
+            <div class="col-sm-4 col-8">
+                <div class="d-flex align-items-center">
+                    <div class="flex-shrink-0 d-block d-lg-none me-3">
+                        <a href="javascript: void(0);" class="user-chat-remove font-size-18 p-1"><i
+                                class="bx bx-chevron-left align-middle"></i></a>
+                    </div>
+                    <div class="flex-grow-1 overflow-hidden">
+                        <div class="d-flex align-items-center">
+                            <div
+                                class="flex-shrink-0 chat-user-img online user-own-img align-self-center me-3 ms-0">
+                                <img src="assets/images/users/avatar-2.jpg"
+                                    class="rounded-circle avatar-sm" alt="">
+                                <span class="user-status"></span>
+                            </div>
+                            <div class="flex-grow-1 overflow-hidden">
+                                <h6 class="text-truncate mb-0 font-size-18"><a href="#"
+                                        class="user-profile-show text-reset">ChatBot</a></h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
 
     <div id="message-container">
         <div>
@@ -21,10 +59,32 @@
         </div>
     </div>
 
-    <form id="send-container">
+    <!-- <form id="send-container">
         <input type="text" id="message-input">
         <button type="submit" id="send-button">Send</button>
+    </form> -->
+
+
+    <form id="send-container" enctype="multipart/form-data">
+
+        <input id="message-input" autocomplete="off" type="text" class="form-control form-control-lg chat-input"
+            autofocus id="chat-input" placeholder="Enter your input...">
+
+
+        <div class="col-auto">
+            <div class="chat-input-links ms-2 gap-md-1">
+                <div class="links-list-item">
+                    <button type="submit" id="send-button" class="btn btn-primary btn-lg chat-send waves-effect waves-light"
+                        data-bs-toggle="collapse" data-bs-target=".chat-input-collapse1.show">
+                        <i class="bx bxs-send align-middle" id="submit-btn"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
     </form>
+</section>
+
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="script.js"></script>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="assets/images/favicon.ico" id="tabIcon">
+    <title>Buka | ChatBot</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <div id="message-container">
+        <div>
+            <p>Select 1 to Place an Order (Enter '1' to see Item List)</p>
+            <p>Select 99 to Checkout</p>
+            <p>Select 98 to See Order History</p>
+            <p>Select 97 to See current Order</p>
+            <p>Select 0 to Cancel your Orders</p>
+    </div>
+    </div>
+
+    <form id="send-container">
+        <input type="text" id="message-input">
+        <button type="submit" id="send-button">Send</button>
+    </form>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

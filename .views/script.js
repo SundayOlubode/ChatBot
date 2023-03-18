@@ -23,7 +23,7 @@ messageForm.addEventListener('submit', e => {
     // EMIT
     socket.emit('user-input', userInput)
 
-    appendMessage(`YOU: ${userInput}`)
+    appendMessage(userInput)
     messageInput.value = ''
 })
 
