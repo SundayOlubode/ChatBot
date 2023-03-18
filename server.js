@@ -10,9 +10,9 @@ process.on('uncaughtException', (error) => {
     process.exit(1)
 })
 
-const server = app.listen(PORT, () => {
-    console.log(`Server listening on port ${PORT}...`);
-})
+// const server = app.listen(PORT, () => {
+//     console.log(`Server listening on port ${PORT}...`);
+// })
 
 process.on('unhandledRejection', (error) => {
     console.log('UNHANDLED REJECTION!!! 🔥🤺 SHUTTING DOWN...');
