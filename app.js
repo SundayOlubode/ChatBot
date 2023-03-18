@@ -7,7 +7,17 @@ const io = require('./socket').init(server)
 const session = require('express-session')
 const chatRoute = require('./routes/chatRoute')
 const socketController = require('./controllers/socketController')
+const CORS = require('cors')
 
+app.use(
+    CORS({
+      credentials: true,
+      origin: [
+      'http://localhost:3300',,
+      'https://chatbot-vka0.onrender.com' 
+    ]
+    })
+  );
 
 const PORT = process.env.PORT
 

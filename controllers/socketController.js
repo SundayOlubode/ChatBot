@@ -8,17 +8,12 @@ module.exports = (req, res, next) => {
         req.session.orderHistory = [] // ORDER HISTORY
         req.session.orderList = []  // UNPLACED ORDER
         req.session.currentOrder = [] // PLACED(CHECKED-OUT ORDER)
-        req.session.checkout = false
 
         const validItemsInput = ['21', '22', '23', '24', '25', '26', '27', '28']
         const validInput = ['1', '99', '98', '97', '0', ...validItemsInput]
 
         console.log('Client is connected!', socket.id);
 
-        // WHEN A USER LANDS
-        socket.on('landing', () => {
-            console.log('Welcome');
-        })
 
         // WHEN USER DISCONNECTS
         socket.on('disconnect', (data) => {
